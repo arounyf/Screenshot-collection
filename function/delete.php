@@ -9,18 +9,18 @@ function backup(){
     //备份数据库到txt
     $sql = "select * from $dbtable where file = '1';";
     $result = $db -> query($sql);
-    if(!file_exists("sql.txt")){
-        $txt=fopen("sql.txt","a+");
+    if(!file_exists("../备份.txt")){
+        $txt=fopen("../备份.txt","a+");
         while($row=$result->fetch_object()){
             $text = "update $dbtable set file = '1',fname= '$row->fname', time = '$row->time' where name = '$row->name';\n";
             $str=fwrite($txt,$text);
         }
         fclose($txt);
     }else{
-        unlink("sql.txt");
+        unlink("../备份.txt");
     }
     //备份压缩包
-    copy("../$zipname","备份-$zipname"); 
+    copy("../$zipname","../备份.zip"); 
 }
 
 
