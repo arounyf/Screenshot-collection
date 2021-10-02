@@ -1,33 +1,33 @@
 <?php 
-require "config.php"; 
-require "db.php";
+require "../config/main.php"; 
+require "../config/db.php";
 require "session.php"; 
 
 function backup(){
-    require "config.php"; 
-    require "db.php";
+    require "../config/main.php"; 
+    require "../config/db.php";
     //备份数据库到txt
     $sql = "select * from $dbtable where file = '1';";
     $result = $db -> query($sql);
-    if(!file_exists($backuptxtname)){
-        $txt=fopen($backuptxtname,"a+");
+    if(!file_exists("sql.txt")){
+        $txt=fopen("sql.txt","a+");
         while($row=$result->fetch_object()){
             $text = "update $dbtable set file = '1',fname= '$row->fname', time = '$row->time' where name = '$row->name';\n";
             $str=fwrite($txt,$text);
         }
         fclose($txt);
     }else{
-        unlink($backuptxtname);
+        unlink("sql.txt");
     }
     //备份压缩包
-    copy($filename,$backupname); 
+    copy("../$zipname","备份-$zipname"); 
 }
 
 
 //重置系统函数
 function delete(){
-    require "db.php";
-    require "config.php";
+    require "../config/db.php";
+    require "../config/main.php";
     
     $sql = "select fname from $dbtable where file = '1'";
     $result = $db -> query($sql);
@@ -53,7 +53,7 @@ echo "图片清理成功";
 echo "</div>";
 
 
-unlink($filename);
+unlink("../$zipname");
 echo '<div class="alert alert-dark" role="alert">';
 echo "压缩包清理成功";
 echo "</div>";
@@ -65,7 +65,7 @@ echo "数据库清理成功";
 echo "</div>";
 }
 
-if(!file_exists($filename))
+if(!file_exists("../$zipname"))
 {
     echo '<div class="alert alert-dark" role="alert">';
 	echo "当前没有下载文件，无法重置系统";

@@ -1,8 +1,9 @@
 <?php 
 
 
-require "db.php";
-require "config.php";
+require "../config/db.php";
+require "../config/main.php";
+require "../config/api.php";
 require "session.php"; 
 
 $sql = "select fname from $dbtable where file = '1'";
@@ -35,20 +36,7 @@ if(!file_exists($filename)){
     //高速下载配置
     copy($filename,$cosdown);
     
-    $url = $cosurl;
-    
-    function get_downurl($time,$url,$cos,$cosapi,$coskey){
-        $postdata = http_build_query( array( 'time' => $time, 'url' => $url , 'key' => $coskey , 'cos' => $cos ));
-        $opts = array('http' =>
-        array(
-            'method'  => 'POST',
-            'header'  => 'Content-type: application/x-www-form-urlencoded',
-            'content' => $postdata));
-        $context  = stream_context_create($opts);
-      $result = file_get_contents( $cosapi , true, $context);
-      return $result;
-    }
-    $downloadurl = get_downurl($time,$url,$cos,$cosapi,$coskey);
+    $downloadurl = get_downurl($cosurl,$cos);
     Header("HTTP/1.1 303 See Other"); 
     header("Location: $downloadurl");
 }

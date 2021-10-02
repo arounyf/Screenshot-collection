@@ -1,5 +1,5 @@
 <?php 
-    require "function/config.php";
+    require "config/main.php";
 ?>
 <!DOCTYPE html>
 <html lang="en" >

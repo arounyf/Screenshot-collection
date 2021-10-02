@@ -1,5 +1,5 @@
 <?php 
-    require "function/config.php";
+    require "config/main.php";
     // require "session.php";
     require "nav.php";
     //验证是否已经登录

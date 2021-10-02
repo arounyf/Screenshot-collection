@@ -19,26 +19,20 @@
 
 ### 系统结构
 - index.php 系统主页
-
 - admin.php 系统后台
-
 - wtj.php 提交情况 
-
 - nav.php 导航栏
-
 - login.php 后台登录界面
-
 - uploud  截图保持目录
-
+- config 配置目录
+  - db.php 数据库配置
+  - main.php 主要配置
+  - api.php 接口配置
 - function 功能模块目录
 
   - clear.php 退出登录
 
-  - config.php 全局配置文件
-
   - d.php 截图打包下载
-
-  - db.php 数据库配置文件
 
   - delete.php 系统重置
   - doption.php 删除某项错误截图

@@ -1,4 +1,4 @@
-<?php require "function/config.php";?>
+<?php require "./config/main.php";?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +13,7 @@
 
 	<div class="container">
 	<?php
-	require "./function/db.php";
+	require "./config/db.php";
 
 	// 查询人数
 
@@ -29,8 +29,8 @@
 	$ytjcount = $data2[0];
 
 	function ewtj($wtjcount){
-		require "./function/db.php";
-		require "function/config.php";
+		require "./config/db.php";
+		require "./config/main.php";
 		echo "<ul class='list-group'><li class='$licls' aria-current='true' style='border: none'>";
 		echo "未提交".$wtjcount."人";
 		echo "</li>";
@@ -52,8 +52,8 @@
 	}
 
 	function eytj($ytjcount){
-		require "./function/db.php";
-		require "function/config.php";
+		require "./config/db.php";
+		require "config/main.php";
 		echo "<ul class='list-group'><li class='$licls' aria-current='true' style='border: none'>";
 		echo "已提交".$ytjcount."人";
 		echo "</li>";

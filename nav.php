@@ -1,4 +1,4 @@
-<?php require "function/config.php";?>
+<?php require "config/main.php";?>
 <nav class="<?php echo $navcls;?>">
   <a class="navbar-brand" href="#"><?php echo $navna?></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

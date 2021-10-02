@@ -1,7 +1,7 @@
 
 <?php
-require "db.php";
-require "config.php";
+require "../config/db.php";
+require "../config/main.php";
 require "session.php"; 
 
 //接收数据

@@ -1,4 +1,4 @@
-<?php require "function/config.php";?>
+<?php require "config/main.php";?>
 <!DOCTYPE html> 
 <html lang="en"> 
 <head> 
@@ -13,7 +13,7 @@
 <body> 
       <?php include "nav.php"; ?>
       <?php
-            require "function/db.php";
+            require "config/db.php";
             $sql = "select count(*) from $dbtable where file = '0'";
             $result = $db -> query($sql);
             $data = $result -> fetch_row();

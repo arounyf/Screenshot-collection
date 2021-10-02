@@ -1,7 +1,7 @@
 <?php  
 
-require "db.php";
-require "config.php";
+require "../config/db.php";
+require "../config/main.php";
 
 $fname = $_FILES["userfile"]["name"];
 $tsize = round($_FILES["userfile"]["size"] / 1048576,2);
@@ -50,8 +50,9 @@ if ($check){
 
 
 function upfile($stu_name,$fname,$tsize){
-	require "db.php";
-	require "config.php";
+	require "../config/db.php";
+	require "../config/main.php";
+	require "../config/api.php";
  	if ($_FILES['userfile']['error'] > 0) { 
     	echo "错误：: " . $_FILES["userfile"]["error"] . "<br>";
 	}else{
@@ -76,19 +77,11 @@ function upfile($stu_name,$fname,$tsize){
             $data = $result -> fetch_row();
             $send = $data[0];
             if ($send == 0){
+            	
                 $desp = $message;
-                function sct_send($desp,$sendkey,$sendapi){
-                    $postdata = http_build_query( array( 'content' => $desp, 'key' => $sendkey ));
-                    $opts = array('http' =>
-                    array(
-                        'method'  => 'POST',
-                        'header'  => 'Content-type: application/x-www-form-urlencoded',
-                        'content' => $postdata));
-                    $context  = stream_context_create($opts);
-                   $result = file_get_contents($sendapi, true, $context);
-                   return $result;
-                }
-                sct_send($desp,$sendkey,$sendapi);
+                sct_send($desp);
+                // 发送消息
+
             }
 			
 		}
