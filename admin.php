@@ -19,7 +19,7 @@
 	<title><?php echo $setna?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-	<script src="function/js/admin.js"></script>
+	<script src="./js/admin.js"></script>
 </head>
 <body>
 	<div class="container">
