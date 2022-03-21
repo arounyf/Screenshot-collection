@@ -20,13 +20,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 	<script src="./js/admin.js"></script>
+	<style>
+	    .btn{
+	        margin: 6px;
+	    }
+	</style>
 </head>
 <body>
 	<div class="container">
-		<button type="button" class="<?php echo $buttoncls;?>" onclick="del()">重置系统</button>
-		<button type="button" class="<?php echo $buttoncls;?>" onclick="down()">下载文件</button>
-		<button type="button" class="<?php echo $buttoncls;?>" onclick="fastdown()">高速下载</button>
-		<button type="button" class="<?php echo $buttoncls;?>" onclick="loginout()">退出登录</button>
+		<button type="button" class="<?php echo $buttoncls;?> btn" onclick="del()">重置系统</button>
+		<button type="button" class="<?php echo $buttoncls;?> btn" onclick="down()">下载文件</button>
+		<button type="button" class="<?php echo $buttoncls;?> btn" onclick="fastdown()">高速下载</button>
+		<button type="button" class="<?php echo $buttoncls;?> btn" onclick="loginout()">退出登录</button>
 
 	    <div class="form-group">
           <label for="xm">需要删除的姓名</label>
