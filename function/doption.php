@@ -37,7 +37,7 @@ if ($jpgf == "../upload/"){
         echo "</div>";
     }
 	//更新数据库
-    $sql = "update $dbtable set file = '0' , fname= 'null',time = 'null' where name = '$stu_name'";
+    $sql = "update $dbtable set file = '0' , fname= 'null' where name = '$stu_name'";
     $result = $db -> query($sql);
 }
 
